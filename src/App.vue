@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <timer name="ESO Timer 1" :timespan="{ hours: 1 }" />
+    <timer name="ESO Timer 2" :timespan="{ minutes: 1 }" />
+    <timer name="ESO Timer 3" :timespan="{ minutes: 5 }" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Timer from "./components/Timer.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Timer
   }
 };
 </script>
