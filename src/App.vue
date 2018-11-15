@@ -1,9 +1,54 @@
 <template>
-  <div id="app">
-    <timer name="ESO Timer 1" :timespan="{ hours: 1 }" />
-    <timer name="ESO Timer 2" :timespan="{ minutes: 1 }" />
-    <timer name="ESO Timer 3" :timespan="{ minutes: 5 }" />
-  </div>
+	<div class="app">
+		<h1>Game Timers</h1>
+		<section class="group">
+			<h1 class="group__title">Elder Scrolls Online</h1>
+			<ul class="group__timers">
+				<li>
+					<timer 
+						title="Arenas"
+						subtitle="Witch's Festival"
+						:timespan="{ hours: 20 }" />
+				</li>
+				<li>
+					<timer 
+						title="Dark Anchors & Geysers" 
+						subtitle="Witch's Festival"
+						:timespan="{ hours: 20 }" />
+				</li>
+				<li>
+					<timer 
+						title="Delves"
+						subtitle="Witch's Festival" 
+						:timespan="{ hours: 20 }" />
+				</li>
+				<li>
+					<timer 
+						title="Dungeons"
+						subtitle="Witch's Festival" 
+						:timespan="{ hours: 20 }" />
+				</li>
+				<li>
+					<timer 
+						title="Public Dungeons"
+						subtitle="Witch's Festival" 
+						:timespan="{ hours: 20 }" />
+				</li>
+				<li>
+					<timer 
+						title="Trials"
+						subtitle="Witch's Festival" 
+						:timespan="{ hours: 20 }" />
+				</li>
+				<li>
+					<timer 
+						title="World"
+						subtitle="Witch's Festival" 
+						:timespan="{ hours: 20 }" />
+				</li>
+			</ul>
+		</section>
+	</div>
 </template>
 
 <script>
@@ -18,12 +63,25 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+	margin: 1rem;
+}
+
+.group {
+
+	&__title {
+		font-weight: 300;
+	}
+
+	&__timers {
+		display: flex;
+		flex-flow: column nowrap;
+		list-style: none;
+		padding: 0;
+
+		& > *:not(:last-child) {
+			border-bottom: 1px solid $athens-gray;
+		}
+	}
 }
 </style>

@@ -1,14 +1,3 @@
-<template>
-    <div>
-        <!--<time>{{ date }}</time><br>
-        <time>{{ difference }}</time><br>-->
-        <time>{{ days | digits }} days</time><br>
-        <time>{{ hours | digits }} hours</time><br>
-        <time>{{ minutes | digits }} minutes</time><br>
-        <time>{{ seconds | digits }} seconds</time>
-    </div>
-</template>
-
 <script>
 const MILLISECOND = 1000;
 
@@ -95,6 +84,52 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<template>
+    <div class="countdown">
+        <dl class="countdown-group countdown-days">
+            <dt class="countdown-label">d.</dt>
+            <dd class="countdown-value">{{ days | digits }}</dd>
+        </dl>
+        <dl class="countdown-group countdown-hours">
+            <dt class="countdown-label">h.</dt>
+            <dd class="countdown-value">{{ hours | digits }}</dd>
+        </dl>
+        <dl class="countdown-group countdown-minutes">
+            <dt class="countdown-label">m.</dt>
+            <dd class="countdown-value">{{ minutes | digits }}</dd>
+        </dl>
+        <dl class="countdown-group countdown-seconds">
+            <dt class="countdown-label">s.</dt>
+            <dd class="countdown-value">{{ seconds | digits }}</dd>
+        </dl>
+    </div>
+</template>
 
+<style scoped lang="scss">
+    .countdown {
+        display: flex;
+        flex-flow: row nowrap;
+
+        &-group {
+            display: flex;
+            flex-flow: column nowrap;
+            font-size: 1.5rem;
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-right: 0.5rem;
+            }
+        }
+
+        &-label {
+            font-size: 40%;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        &-value {
+            font-weight: 400;
+            margin: 0;
+        }
+    }
 </style>
