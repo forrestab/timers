@@ -1,8 +1,13 @@
 <script>
+import TimerClockUnit from "./timer-clock-unit.vue";
+
 const MILLISECOND = 1000;
 
 export default {
-    name: "timer-countdown",
+    name: "timer-clock",
+    components: {
+        TimerClockUnit
+    },
     props: {
         date: Date
     },
@@ -67,69 +72,38 @@ export default {
                 this.intervalId = null;
             }
         }
-    },
-    filters: {
-        digits(value) {
-            if (value < 0) {
-                return "00";
-            }
-
-            if (value < 10 || 0 >= value) {
-                return `0${value}`;
-            }
-
-            return value;
-        }
     }
 };
 </script>
 
 <template>
-    <div class="countdown">
-        <dl class="countdown-group countdown-days">
-            <dt class="countdown-label">d.</dt>
-            <dd class="countdown-value">{{ days | digits }}</dd>
-        </dl>
-        <dl class="countdown-group countdown-hours">
-            <dt class="countdown-label">h.</dt>
-            <dd class="countdown-value">{{ hours | digits }}</dd>
-        </dl>
-        <dl class="countdown-group countdown-minutes">
-            <dt class="countdown-label">m.</dt>
-            <dd class="countdown-value">{{ minutes | digits }}</dd>
-        </dl>
-        <dl class="countdown-group countdown-seconds">
-            <dt class="countdown-label">s.</dt>
-            <dd class="countdown-value">{{ seconds | digits }}</dd>
-        </dl>
-    </div>
+<div class="clock">
+    <timer-clock-unit
+        label="d."
+        :value="days"
+    />
+    <timer-clock-unit
+        label="h."
+        :value="hours"
+    />
+    <timer-clock-unit
+        label="m."
+        :value="minutes"
+    />
+    <timer-clock-unit
+        label="s."
+        :value="seconds"
+    />
+</div>
 </template>
 
 <style scoped lang="scss">
-    .countdown {
-        display: flex;
-        flex-flow: row nowrap;
+.clock {
+    display: flex;
+    flex-flow: row nowrap;
 
-        &-group {
-            display: flex;
-            flex-flow: column nowrap;
-            font-size: 1.5rem;
-            margin: 0;
-
-            &:not(:last-child) {
-                margin-right: 0.5rem;
-            }
-        }
-
-        &-label {
-            font-size: 40%;
-            font-weight: 400;
-            text-transform: uppercase;
-        }
-
-        &-value {
-            font-weight: 400;
-            margin: 0;
-        }
+    & :not(:last-child) {
+        margin-right: 0.5rem;
     }
+}
 </style>
