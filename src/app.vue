@@ -1,3 +1,14 @@
+<script>
+import Timer from "./components/timer.vue";
+
+export default {
+  name: "app",
+  components: {
+    Timer
+  }
+};
+</script>
+
 <template>
 	<div class="app">
 		<h1>Game Timers</h1>
@@ -8,59 +19,55 @@
 					<timer 
 						title="Arenas"
 						subtitle="Witch's Festival"
-						:timespan="{ hours: 20 }" />
+						:timespan="{ hours: 20 }" 
+					/>
 				</li>
 				<li>
 					<timer 
 						title="Dark Anchors & Geysers" 
 						subtitle="Witch's Festival"
-						:timespan="{ hours: 20 }" />
+						:timespan="{ hours: 20 }" 
+					/>
 				</li>
 				<li>
 					<timer 
 						title="Delves"
 						subtitle="Witch's Festival" 
-						:timespan="{ hours: 20 }" />
+						:timespan="{ hours: 20 }" 
+					/>
 				</li>
 				<li>
 					<timer 
 						title="Dungeons"
 						subtitle="Witch's Festival" 
-						:timespan="{ hours: 20 }" />
+						:timespan="{ hours: 20 }" 
+					/>
 				</li>
 				<li>
 					<timer 
 						title="Public Dungeons"
 						subtitle="Witch's Festival" 
-						:timespan="{ hours: 20 }" />
+						:timespan="{ hours: 20 }" 
+					/>
 				</li>
 				<li>
 					<timer 
 						title="Trials"
 						subtitle="Witch's Festival" 
-						:timespan="{ hours: 20 }" />
+						:timespan="{ hours: 20 }" 
+					/>
 				</li>
 				<li>
 					<timer 
 						title="World"
 						subtitle="Witch's Festival" 
-						:timespan="{ hours: 20 }" />
+						:timespan="{ hours: 20 }" 
+					/>
 				</li>
 			</ul>
 		</section>
 	</div>
 </template>
-
-<script>
-import Timer from "./components/Timer.vue";
-
-export default {
-  name: "app",
-  components: {
-    Timer
-  }
-};
-</script>
 
 <style lang="scss">
 .app {

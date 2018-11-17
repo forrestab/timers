@@ -1,13 +1,14 @@
 <script>
 import { addHours, addMinutes } from "date-fns";
-import Countdown from "./Countdown.vue";
+
+import TimerCountdown from "./timer-countdown.vue";
 import Play from "../assets/svg/play.svg";
 import Stop from "../assets/svg/stop.svg";
 
 export default {
     name: "timer",
     components: {
-        Countdown,
+        TimerCountdown,
         Play,
         Stop
     },
@@ -82,10 +83,14 @@ export default {
             <h1 class="timer__title">{{ title }}</h1>
             <h2 class="timer__subtitle" v-if="subtitle">{{ subtitle }}</h2>                        
         </hgroup>
-        <countdown :date="date" @complete="onComplete" class="timer__countdown"></countdown>
+        <timer-countdown 
+            :date="date" 
+            @complete="onComplete" 
+            class="timer__countdown" 
+        />
         <button class="timer__action" @click="onActionClicked">
-            <Play v-if="!isRunning" />
-            <Stop v-if="isRunning" />
+            <play v-if="!isRunning" />
+            <stop v-if="isRunning" />
         </button>
     </div>
 </template>

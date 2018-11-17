@@ -2,7 +2,7 @@
 const MILLISECOND = 1000;
 
 export default {
-    name: "countdown",
+    name: "timer-countdown",
     props: {
         date: Date
     },
