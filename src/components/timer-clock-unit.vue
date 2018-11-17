@@ -9,6 +9,11 @@ export default {
             type: Number
         }
     },
+    computed: {
+        isZero() {
+            return this.value === 0;
+        }
+    },
     filters: {
         digits(value) {
             if (value < 0) {
@@ -26,7 +31,7 @@ export default {
 </script>
 
 <template>
-<dl class="clock-unit">
+<dl class="clock-unit" :class="{ 'clock-unit--zero': isZero }">
     <dt class="clock-unit__label">{{ label }}</dt>
     <dd class="clock-unit__value">{{ value | digits }}</dd>
 </dl>
@@ -38,6 +43,10 @@ export default {
     flex-flow: column nowrap;
     font-size: 1.5rem;
     margin: 0;
+
+    &--zero {
+        color: #bdbdbd;
+    }
 
     &__label {
         font-size: 40%;
